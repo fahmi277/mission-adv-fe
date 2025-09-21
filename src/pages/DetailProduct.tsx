@@ -36,13 +36,13 @@ const DetailProduct: React.FC = () => {
     setIsEditMode(true);
   };
 
-  const handleUpdate = (courseData: Omit<Course, 'id'>) => {
+  const handleUpdate = async (courseData: Omit<Course, 'id'>) => {
     if (course) {
       const updatedCourse: Course = {
         ...courseData,
         id: course.id
       };
-      updateCourse(updatedCourse);
+      await updateCourse(updatedCourse);
       setCourse(updatedCourse);
       setIsEditMode(false);
     }
